@@ -13,7 +13,6 @@ version: {{ version }}-{{ variant_version }}
 
 channels:
 - https://conda.anaconda.org/conda-forge
-- https://conda.anaconda.org/conda-forge/label/deepmd-kit_rc
 
 specs:
 - deepmd-kit {{ version }} {{ variant }}*
@@ -27,19 +26,15 @@ specs:
 # cuda aware MPI
 - openmpi
 {% endif %}
-{% if cuda_version == '11.8' %}
-# See https://github.com/deepmodeling/deepmd-kit/issues/3406
-- python<3.11
-- njzjz/noarch::libdevice-hack-for-tensorflow==0.0.0=py_3
-{% endif %}
 - libblas * *mkl
-{% if cuda_version != '11.8' %}
 # jax
 - jax >=0.4.33
 - jaxlib * {{ variant }}*
 - flax >=0.10.0
 - orbax-checkpoint
 - njzjz/linux-64::tensorstore
+{% if cuda_version == '12.6' %}
+- njzjz/linux-64::jaxlib
 {% endif %}
 
 ignore_duplicate_files: True

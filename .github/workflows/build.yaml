@@ -13,16 +13,10 @@ jobs:
           - name: deepmd-kit
             platform: linux-64
           - name: deepmd-kit
-            cuda: '11.8'
-            platform: linux-64
-          - name: deepmd-kit
             cuda: '12.6'
             platform: linux-64
-          #- name: deepmd-kit-gpu
-          #  cuda: '10.2'
-          #  platform: linux-ppc64le
     env:
-      version: "3.0.0rc0"
+      version: "3.0.0"
     steps:
     - name: Delete huge unnecessary tools folder
       run: rm -rf /opt/hostedtoolcache

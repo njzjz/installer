@@ -3,6 +3,8 @@ Please activate the environment before using the packages:
 
 source /path/to/deepmd-kit/bin/activate /path/to/deepmd-kit
 
+This package enables TensorFlow, PyTorch, and JAX backends.
+
 The following executable files have been installed:
 1. DeePMD-kit CLi: dp -h
 2. LAMMPS: lmp -h
