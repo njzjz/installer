@@ -33,9 +33,6 @@ specs:
 - flax >=0.10.0
 - orbax-checkpoint
 - njzjz/linux-64::tensorstore
-{% if cuda_version == '12.6' %}
-- njzjz/linux-64::jaxlib
-{% endif %}
 
 ignore_duplicate_files: True
 
