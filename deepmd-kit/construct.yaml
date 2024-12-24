@@ -33,6 +33,7 @@ specs:
 - flax >=0.10.0
 - orbax-checkpoint
 - njzjz/linux-64::tensorstore
+- njzjz::libdevice-hack-for-tensorflow
 
 ignore_duplicate_files: True
 
