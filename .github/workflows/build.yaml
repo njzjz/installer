@@ -21,7 +21,7 @@ jobs:
     - name: Delete huge unnecessary tools folder
       run: rm -rf /opt/hostedtoolcache
     - uses: actions/checkout@v4
-    - uses: s-weigand/setup-conda@v1
+    - uses: s-weigand/setup-conda@v1.0.7
       with:
         python-version: "3.11"
     - run: conda install constructor jinja2 conda-libmamba-solver -y
