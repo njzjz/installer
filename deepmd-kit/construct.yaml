@@ -32,7 +32,6 @@ specs:
 - jaxlib * {{ variant }}*
 - flax >=0.10.0
 - orbax-checkpoint
-- njzjz/linux-64::tensorstore
 
 ignore_duplicate_files: True
 
