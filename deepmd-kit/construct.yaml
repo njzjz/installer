@@ -23,6 +23,7 @@ specs:
 - conda
 {% if cuda_version != '' %}
 - cuda-version {{ cuda_version }}
+- njzjz/noarch::libdevice-hack-for-tensorflow
 # cuda aware MPI
 - openmpi
 {% endif %}
@@ -32,6 +33,7 @@ specs:
 - jaxlib * {{ variant }}*
 - flax >=0.10.0
 - orbax-checkpoint
+- njzjz/linux-64::tensorstore
 
 ignore_duplicate_files: True
 
