@@ -13,15 +13,15 @@ jobs:
           - name: deepmd-kit
             platform: linux-64
           - name: deepmd-kit
-            cuda: '12.6'
+            cuda: '12.8'
             platform: linux-64
     env:
-      version: "3.0.1"
+      version: "3.0.2"
     steps:
     - name: Delete huge unnecessary tools folder
       run: rm -rf /opt/hostedtoolcache
     - uses: actions/checkout@v4
-    - uses: s-weigand/setup-conda@v1
+    - uses: s-weigand/setup-conda@v1.0.7
       with:
         python-version: "3.11"
     - run: conda install constructor jinja2 conda-libmamba-solver -y
@@ -33,9 +33,9 @@ jobs:
         VERSION: ${{ env.version }}
         CUDA_VERSION: ${{ matrix.cuda }}
         CONDA_OVERRIDE_CUDA: ${{ matrix.cuda }}
-        CONDA_OVERRIDE_GLIBC: "2.17"
+        CONDA_OVERRIDE_GLIBC: "2.28"
     - run: export NAME=`ls deepmd-kit-*.sh` && split -a 1 -d -n 2 ${NAME} ${NAME}. && rm deepmd-kit-*.sh
-      if: matrix.cuda == '11.8' || matrix.cuda == '12.6'
+      if: matrix.cuda != ''
     - name: Upload to release
       uses: softprops/action-gh-release@v1
       if: startsWith(github.ref, 'refs/tags/')

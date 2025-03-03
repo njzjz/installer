@@ -23,12 +23,13 @@ specs:
 - conda
 {% if cuda_version != '' %}
 - cuda-version {{ cuda_version }}
+- njzjz/noarch::libdevice-hack-for-tensorflow
 # cuda aware MPI
 - openmpi
 {% endif %}
 - libblas * *mkl
 # jax
-- jax >=0.4.33
+- jax 0.5.0
 - jaxlib * {{ variant }}*
 - flax >=0.10.0
 - orbax-checkpoint
