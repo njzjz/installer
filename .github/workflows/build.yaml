@@ -33,7 +33,7 @@ jobs:
         VERSION: ${{ env.version }}
         CUDA_VERSION: ${{ matrix.cuda }}
         CONDA_OVERRIDE_CUDA: ${{ matrix.cuda }}
-        CONDA_OVERRIDE_GLIBC: "2.17"
+        CONDA_OVERRIDE_GLIBC: "2.28"
     - run: export NAME=`ls deepmd-kit-*.sh` && split -a 1 -d -n 2 ${NAME} ${NAME}. && rm deepmd-kit-*.sh
       if: matrix.cuda == '11.8' || matrix.cuda == '12.6'
     - name: Upload to release
