@@ -53,3 +53,10 @@ jobs:
         append_body: true
       env:
         GITHUB_TOKEN: ${{ secrets.DEEPMD_GITHUB_TOKEN }}
+    - name: Test
+      run: |
+        bash deepmd-kit-*.sh* -b
+        source ~/deepmd-kit/bin/activate
+        git clone https://github.com/njzjz/benchmark-dpv3
+        cd benchmark-dpv3
+        python make_model.py
