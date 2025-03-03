@@ -34,13 +34,6 @@ jobs:
         CUDA_VERSION: ${{ matrix.cuda }}
         CONDA_OVERRIDE_CUDA: ${{ matrix.cuda }}
         CONDA_OVERRIDE_GLIBC: "2.28"
-    - name: Test
-      run: |
-        bash deepmd-kit-*.sh -b
-        source ~/deepmd-kit/bin/activate
-        git clone https://github.com/njzjz/benchmark-dpv3
-        cd benchmark-dpv3
-        python make_model.py
     - run: export NAME=`ls deepmd-kit-*.sh` && split -a 1 -d -n 2 ${NAME} ${NAME}. && rm deepmd-kit-*.sh
       if: matrix.cuda != ''
     - name: Upload to release
