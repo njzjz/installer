@@ -34,7 +34,7 @@ jobs:
         CUDA_VERSION: ${{ matrix.cuda }}
         CONDA_OVERRIDE_CUDA: ${{ matrix.cuda }}
         CONDA_OVERRIDE_GLIBC: "2.28"
-    - run: export NAME=`ls deepmd-kit-*.sh` && split -a 1 -d -n 2 ${NAME} ${NAME}. && rm deepmd-kit-*.sh
+    - run: export NAME=`ls deepmd-kit-*.sh` && split -a 1 -d -n 3 ${NAME} ${NAME}. && rm deepmd-kit-*.sh
       if: matrix.cuda != ''
     - name: Upload to release
       uses: softprops/action-gh-release@v1
