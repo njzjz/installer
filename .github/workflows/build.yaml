@@ -16,7 +16,7 @@ jobs:
             cuda: '12.8'
             platform: linux-64
     env:
-      version: "3.0.2"
+      version: "3.0.3"
     steps:
     - name: Delete huge unnecessary tools folder
       run: rm -rf /opt/hostedtoolcache
