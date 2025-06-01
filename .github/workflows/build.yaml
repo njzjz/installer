@@ -53,3 +53,14 @@ jobs:
         append_body: true
       env:
         GITHUB_TOKEN: ${{ secrets.DEEPMD_GITHUB_TOKEN }}
+
+  pass:
+    name: Pass
+    needs: [build]
+    runs-on: ubuntu-latest
+    if: always()
+    steps:
+    - name: Decide whether the needed jobs succeeded or failed
+      uses: re-actors/alls-green@release/v1
+      with:
+        jobs: ${{ toJSON(needs) }}
